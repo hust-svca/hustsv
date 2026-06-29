@@ -77,6 +77,10 @@ img{max-width:100%;display:block}
 .trace .pad{fill:var(--night);stroke:var(--copper);stroke-width:2}
 .trace .lbl{font-family:'IBM Plex Mono';font-size:13px;fill:#fff}
 .trace .geo{font-family:'IBM Plex Mono';font-size:10px;fill:var(--signal)}
+.trace-m{display:none}
+.trace-m .lbl{font-size:15px}
+.trace-m .geo{font-size:11px}
+@media(max-width:780px){.trace{display:none}.trace-m{display:block;max-width:400px;margin-top:24px}}
 
 /* ---------- 数据条（深色） ---------- */
 .stats{display:flex;max-width:var(--maxw);margin:0 auto;border-top:1px solid rgba(255,255,255,.12)}
