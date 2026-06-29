@@ -26,13 +26,13 @@ window.SITE_DATA = {
   currentLeaders: [
     { role: "会长",  name: "孙彦杰" },
     { role: "理事长", name: "周小松" },
+    { role: "秘书长", name: "粟海" },
+    { role: "财务长", name: "付雨婷" },
     { role: "副会长", name: "胡满琛" },
     { role: "副会长", name: "夏鸣" },
     { role: "副会长", name: "阮家彪" },
     { role: "副会长", name: "吕玮" },
-    { role: "副会长", name: "房姗姗" },
-    { role: "秘书长", name: "粟海" },
-    { role: "财务长", name: "付雨婷" }
+    { role: "副会长", name: "房姗姗" }
   ],
 
   /* 历届会长 */
