@@ -115,6 +115,8 @@
       const body = a.blocks.map(b=>{
         if(b.k==="img") return `<img loading="lazy" src="${b.v}" alt="">`;
         if(b.k==="cap") return `<p class="cap mono">${esc(b.v)}</p>`;
+        if(b.k==="h")   return `<h2 class="art-h">${esc(b.v)}</h2>`;
+        if(b.k==="ul")  return `<ul class="art-ul">${b.v.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>`;
         return `<p>${esc(b.v)}</p>`;
       }).join("");
       const linksHtml = (a.links && a.links.length)
