@@ -4,6 +4,8 @@
   const A = window.ARTICLES || [];
   const page = document.body.dataset.page || "home";
   const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  /* 只放行 http(s) 外链和本站 assets 相对路径，其余一律置空，防止 javascript: 等注入 */
+  const safeUrl = u => { u=String(u||""); return (/^https?:\/\//i.test(u) || /^(\.\.\/)?assets\/[\w.-]+$/.test(u)) ? esc(u) : "#"; };
   const nav = [
     ["index.html","首页","home"],
     ["about.html","关于我们","about"],
@@ -83,7 +85,7 @@
   if(forumBox){
     forumBox.innerHTML = D.forum.map(f=>{
       const tag = f.id ? "a" : "div";
-      const href = f.id ? ` href="article.html?id=${f.id}"` : "";
+      const href = f.id ? ` href="article.html?id=${encodeURIComponent(f.id)}"` : "";
       return `<${tag} class="forum-card${f.id?' has-link':''}"${href}>
         <div class="no">${String(f.n).padStart(2,'0')}</div>
         <div><div class="ft">${f.title}</div><div class="fg">${f.guest}</div></div>
@@ -96,8 +98,8 @@
   const recentBox = document.getElementById("recent");
   if(recentBox){
     recentBox.innerHTML = A.slice(0,3).map(a=>`
-      <a class="news-card" href="article.html?id=${a.id}">
-        <div class="news-cover" ${a.cover?`style="background-image:url('${a.cover}')"`:''}>
+      <a class="news-card" href="article.html?id=${encodeURIComponent(a.id)}">
+        <div class="news-cover" ${a.cover?`style="background-image:url('${safeUrl(a.cover)}')"`:''}>
           <span class="news-cat mono">[${CATEN[a.cat]}]</span>
         </div>
         <div class="news-body"><div class="news-date mono">${a.d}</div><h3>${esc(a.t)}</h3></div>
@@ -113,21 +115,21 @@
     else{
       document.title = a.t + " · 华科北加州校友会";
       const body = a.blocks.map(b=>{
-        if(b.k==="img") return `<img loading="lazy" src="${b.v}" alt="">`;
+        if(b.k==="img") return `<img loading="lazy" src="${safeUrl(b.v)}" alt="">`;
         if(b.k==="cap") return `<p class="cap mono">${esc(b.v)}</p>`;
         if(b.k==="h")   return `<h2 class="art-h">${esc(b.v)}</h2>`;
         if(b.k==="ul")  return `<ul class="art-ul">${b.v.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>`;
         return `<p>${esc(b.v)}</p>`;
       }).join("");
       const linksHtml = (a.links && a.links.length)
-        ? `<div class="art-links"><span class="mono">原文 / 报名链接</span>${a.links.map(l=>`<a href="${l.u}" target="_blank" rel="noopener">${esc(l.t)} ↗</a>`).join("")}</div>`
+        ? `<div class="art-links"><span class="mono">原文 / 报名链接</span>${a.links.map(l=>`<a href="${safeUrl(l.u)}" target="_blank" rel="noopener">${esc(l.t)} ↗</a>`).join("")}</div>`
         : "";
       artBox.innerHTML = `
         <a class="back mono" href="events.html">← EVENTS / 活动报道</a>
         <div class="art-cat mono">[${CATEN[a.cat]}] · ${D.cats[a.cat].label}</div>
         <h1>${esc(a.t)}</h1>
         <div class="art-date mono">${a.d} · 来自公众号「华科北加校友会」</div>
-        ${a.cover?`<img class="art-cover" src="${a.cover}" alt="">`:''}
+        ${a.cover?`<img class="art-cover" src="${safeUrl(a.cover)}" alt="">`:''}
         <div class="art-body">${body}</div>
         <div class="art-foot">
           <div class="mono">本文来自微信公众号「${D.org.wechat}」</div>
@@ -144,7 +146,7 @@
     function render(cat){
       const list = cat==="all"?A:A.filter(a=>a.cat===cat);
       archBox.innerHTML = list.map(a=>`
-        <a class="entry" href="article.html?id=${a.id}">
+        <a class="entry" href="article.html?id=${encodeURIComponent(a.id)}">
           <div class="d">${a.d}</div>
           <div class="tt">${esc(a.t)}</div>
           <div class="tag mono cat-${a.cat}">[${CATEN[a.cat]}]</div>
