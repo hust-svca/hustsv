@@ -10,7 +10,8 @@
     ["index.html","首页","home"],
     ["about.html","关于我们","about"],
     ["events.html","活动报道","events"],
-    ["forum.html","硅谷论坛","forum"]
+    ["forum.html","硅谷论坛","forum"],
+    ["teams.html","校友球队","teams"]
   ];
   const CATEN = {bbq:"BBQ",forum:"FORUM",gala:"GALA",charity:"CARE",other:"MISC"};
 
@@ -92,6 +93,70 @@
         <div class="fy"><div>${f.year}</div>${f.id?'<div class="fmore mono">查看报道 →</div>':''}</div>
       </${tag}>`;
     }).join("");
+  }
+
+  /* ---- 校友球队 ---- */
+  const teamsBox = document.getElementById("teams-list");
+  if(teamsBox && D.teams){
+    teamsBox.innerHTML = D.teams.map(t=>{
+      if(t.pending){
+        return `<div class="team-card pending">
+          <div class="team-media"><div class="team-ph">${esc(t.emoji||"")}</div></div>
+          <div class="team-body">
+            <div class="team-name"><span class="team-emoji">${esc(t.emoji||"")}</span>${esc(t.name)}<span class="team-en mono">${esc(t.en||"")}</span></div>
+            <p class="team-blurb team-soon">内容征集中——本队介绍正在整理，敬请期待。</p>
+            <a class="team-recruit mono" href="about.html#join">想负责这支球队？联系我们 →</a>
+          </div>
+        </div>`;
+      }
+      const media = (t.photos&&t.photos.length)
+        ? `<div class="team-media"><img loading="lazy" src="${safeUrl(t.photos[0])}" alt="${esc(t.name)}"></div>`
+        : "";
+      let venue = "";
+      if(t.venue){
+        const v = t.venue;
+        if(typeof v === "object"){
+          const nameHtml = v.url
+            ? `<a class="hlink" href="${safeUrl(v.url)}" target="_blank" rel="noopener">${esc(v.name)} ↗</a>`
+            : esc(v.name);
+          const addrHtml = v.address
+            ? `<a class="team-addr mono" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.address)}" target="_blank" rel="noopener">📍 ${esc(v.address)}</a>`
+            : "";
+          venue = `<div class="team-venue"><span class="team-lab mono">主场</span>${nameHtml}${v.note?`　${esc(v.note)}`:""}${addrHtml}</div>`;
+        } else {
+          venue = `<div class="team-venue"><span class="team-lab mono">主场</span>${esc(v)}</div>`;
+        }
+      }
+      const contact = t.contact ? `<div class="team-contact">
+          <span class="team-lab mono">联系人</span>
+          <b>${esc(t.contact.name)}</b>${t.contact.note?`<span class="team-note">${esc(t.contact.note)}</span>`:""}
+          ${t.contact.wechat?`<span class="team-wx mono">微信 ${esc(t.contact.wechat)}</span>`:""}
+        </div>` : "";
+      return `<div class="team-card">
+        ${media}
+        <div class="team-body">
+          <div class="team-name"><span class="team-emoji">${esc(t.emoji||"")}</span>${esc(t.name)}<span class="team-en mono">${esc(t.en||"")}</span></div>
+          <p class="team-blurb">${esc(t.blurb)}</p>
+          ${venue}
+          ${contact}
+        </div>
+      </div>`;
+    }).join("");
+
+    /* 照片灯箱：点击看大图，不离开页面 */
+    const lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML = `<button class="lb-close" aria-label="关闭">×</button><img alt="">`;
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector("img");
+    const closeLb = () => { lb.classList.remove("show"); lbImg.src = ""; };
+    teamsBox.addEventListener("click", e => {
+      const img = e.target.closest(".team-media img");
+      if(!img) return;
+      lbImg.src = img.src; lb.classList.add("show");
+    });
+    lb.addEventListener("click", closeLb);
+    document.addEventListener("keydown", e => { if(e.key === "Escape") closeLb(); });
   }
 
   /* ---- 首页：最新动态（带封面） ---- */

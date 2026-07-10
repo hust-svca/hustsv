@@ -58,6 +58,29 @@ window.SITE_DATA = {
     { n: 5,  year: 2016, title: "淘米网创始故事", guest: "汪海兵 · 淘米 CEO", id: "201609200429" }
   ],
 
+  /* 常驻校友球队（渲染于 teams.html + 首页入口）——
+     pending:true 的球队显示「内容征集中」占位，素材到齐后回填
+     blurb / venue / contact / photos 并删除 pending 即可。
+     照片须放入本站 assets/（CSP 不允许外链图片）。 */
+  teams: [
+    {
+      key: "pingpong", name: "乒乓球队", en: "TABLE TENNIS", emoji: "🏓",
+      blurb: "华科乒乓球队曾为湾区四强，现以 1900–2000 分选手为主力，携 1700 分新血稳居八强准一流。2025 年引强援勇夺明珠杯亚军。",
+      venue: {
+        name: "南湾「天鹅球馆」",
+        url: "https://www.swanpp.com/",
+        address: "2600 Lafayette St, Santa Clara, CA 95050",
+        note: "交通便利、全湾区价格最低，馆长同为华科校友。"
+      },
+      contact: { name: "彭云", note: "84 级固体电子系", wechat: "yunp49" },
+      photos: ["assets/team-pingpong-1.jpg"]
+    },
+    { key: "pickleball", name: "匹克球队",  en: "PICKLEBALL", emoji: "🥒", blurb: "", venue: "", contact: null, photos: [], pending: true },
+    { key: "soccer",     name: "足球队",    en: "SOCCER",     emoji: "⚽", blurb: "", venue: "", contact: null, photos: [], pending: true },
+    { key: "golf",       name: "高尔夫球队", en: "GOLF",       emoji: "⛳", blurb: "", venue: "", contact: null, photos: [], pending: true },
+    { key: "tennis",     name: "网球队",    en: "TENNIS",     emoji: "🎾", blurb: "", venue: "", contact: null, photos: [], pending: true }
+  ],
+
   /* 文章分类（与 articles.js 中的 cat 对应） */
   cats: {
     all:     { label: "全部", emoji: "📰" },
