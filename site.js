@@ -111,7 +111,7 @@
       }
       const media = (t.photos&&t.photos.length)
         ? `<div class="team-media"><img loading="lazy" src="${safeUrl(t.photos[0])}" alt="${esc(t.name)}"></div>`
-        : "";
+        : `<div class="team-media"><div class="team-ph">${esc(t.emoji||"")}</div></div>`;
       let venue = "";
       if(t.venue){
         const v = t.venue;

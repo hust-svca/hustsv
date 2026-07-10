@@ -75,7 +75,16 @@ window.SITE_DATA = {
       contact: { name: "彭云", note: "84 级固体电子系", wechat: "yunp49" },
       photos: ["assets/team-pingpong-1.jpg"]
     },
-    { key: "pickleball", name: "匹克球队",  en: "PICKLEBALL", emoji: "🥒", blurb: "", venue: "", contact: null, photos: [], pending: true },
+    {
+      key: "pickleball", name: "匹克球队", en: "PICKLEBALL", emoji: "🥒",
+      blurb: "每月组织匹克球比赛，正筹备参加第二届湾区高校匹克球团体赛，欢迎各级别水平的球友。活动多在周日上午举行，报名请在匹克球群「接龙」。",
+      venue: {
+        name: "Palo Alto · Mitchell Park",
+        address: "600 E Meadow Dr, Palo Alto, CA 94303"
+      },
+      contact: { name: "Henry Hu", note: "电子 94 级", wechat: "henryhwx" },
+      photos: []
+    },
     { key: "soccer",     name: "足球队",    en: "SOCCER",     emoji: "⚽", blurb: "", venue: "", contact: null, photos: [], pending: true },
     { key: "golf",       name: "高尔夫球队", en: "GOLF",       emoji: "⛳", blurb: "", venue: "", contact: null, photos: [], pending: true },
     { key: "tennis",     name: "网球队",    en: "TENNIS",     emoji: "🎾", blurb: "", venue: "", contact: null, photos: [], pending: true }
