@@ -83,7 +83,7 @@ window.SITE_DATA = {
         address: "600 E Meadow Dr, Palo Alto, CA 94303"
       },
       contact: { name: "Henry Hu", note: "电子 94 级", wechat: "henryhwx" },
-      photos: []
+      photos: ["assets/team-pickleball-1.jpg"]
     },
     { key: "soccer",     name: "足球队",    en: "SOCCER",     emoji: "⚽", blurb: "", venue: "", contact: null, photos: [], pending: true },
     { key: "golf",       name: "高尔夫球队", en: "GOLF",       emoji: "⛳", blurb: "", venue: "", contact: null, photos: [], pending: true },
