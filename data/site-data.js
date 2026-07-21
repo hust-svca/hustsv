@@ -87,14 +87,13 @@ window.SITE_DATA = {
     },
     {
       key: "soccer", name: "足球队", en: "SOCCER", emoji: "⚽",
-      blurb: "",
+      blurb: "多次参加湾区高校联合会杯：2024 年校友杯打进半决赛；2025 年小组赛 4 战 3 胜，遗憾因净胜球劣势未能小组出线。",
       venue: {
         name: "Soccer Field At Cubberley",
         address: "4000 Middlefield Rd, Palo Alto, CA 94303"
       },
-      contact: { name: "杨灵琪", note: "土木 04 级", wechat: "nickyang07" },
-      photos: ["assets/team-soccer-1.jpg"],
-      collecting: true
+      contact: { name: "杨灵祺", note: "力学 04 级", wechat: "nickyang07" },
+      photos: ["assets/team-soccer-1.jpg"]
     },
     { key: "golf",       name: "高尔夫球队", en: "GOLF",       emoji: "⛳", blurb: "", venue: "", contact: null, photos: [], pending: true },
     { key: "tennis",     name: "网球队",    en: "TENNIS",     emoji: "🎾", blurb: "", venue: "", contact: null, photos: [], pending: true }
