@@ -251,10 +251,15 @@ img{max-width:100%;display:block}
 .team-blurb{font-size:15px;color:#2A3744;margin-top:12px;line-height:1.9}
 .team-soon{color:var(--muted)}
 .team-lab{display:inline-block;font-size:10px;color:var(--copper);letter-spacing:2px;margin-right:10px;vertical-align:1px}
-.team-match{margin-top:14px;padding:12px 15px;background:var(--fog);border-left:3px solid var(--copper);border-radius:0 6px 6px 0}
-.team-match b{display:block;font-size:14.5px;font-weight:700;margin:5px 0 6px;color:var(--ink)}
-.team-match-row{font-size:13px;color:var(--ink);margin-top:3px}
-.team-match .team-addr{margin-top:5px}
+/* 赛事提示条（teams.html 顶部，赛后可整段删除） */
+.notice-wrap{max-width:var(--maxw);margin:0 auto;padding:30px 24px 0}
+.notice{display:flex;gap:16px;align-items:flex-start;background:var(--fog);border:1px solid var(--line);border-left:4px solid var(--copper);border-radius:0 8px 8px 0;padding:18px 22px}
+.notice-tag{flex:none;font-size:11px;letter-spacing:1px;color:var(--copper);background:#fff;border:1px solid var(--copper);border-radius:4px;padding:5px 11px;white-space:nowrap}
+.notice b{display:block;font-size:16px;font-weight:700;line-height:1.75;color:var(--ink)}
+.notice-meta{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.9}
+.notice-link{color:var(--copper-d);text-decoration:none;border-bottom:1px solid rgba(208,138,78,.45)}
+.notice-link:hover{border-color:var(--copper-d)}
+
 .team-venue{font-size:14px;color:var(--muted);margin-top:14px}
 .team-addr{display:inline-block;margin-top:6px;font-size:12px;color:var(--signal);text-decoration:none;letter-spacing:.5px}
 .team-addr:hover{text-decoration:underline}
@@ -297,6 +302,9 @@ img{max-width:100%;display:block}
   .stat:nth-child(even){border-right:none}
 
   .grid3,.grid4,.le-grid,.news-grid{grid-template-columns:1fr}
+  .notice-wrap{padding:22px 20px 0}
+  .notice{flex-direction:column;gap:10px;padding:16px 18px}
+  .notice b{font-size:15px}
   .team-card{grid-template-columns:1fr}
   .team-media{min-height:200px}
   .team-media::after{opacity:1}
