@@ -85,7 +85,19 @@ window.SITE_DATA = {
       contact: { name: "Henry Hu", note: "电子 94 级", wechat: "henryhwx" },
       photos: ["assets/team-pickleball-1.jpg"]
     },
-    { key: "soccer",     name: "足球队",    en: "SOCCER",     emoji: "⚽", blurb: "", venue: "", contact: null, photos: [], pending: true },
+    {
+      key: "soccer", name: "足球队", en: "SOCCER", emoji: "⚽",
+      blurb: "",
+      match: {
+        title: "校友杯风烟再起，大家踊跃报名！",
+        when: "周六 · 2026/07/25 · 上午 10:55 开球",
+        place: "Cubberley Parking Lot",
+        address: "4120 Middlefield Rd, Palo Alto, CA 94303"
+      },
+      venue: "", contact: null,
+      photos: ["assets/team-soccer-1.jpg"],
+      collecting: true
+    },
     { key: "golf",       name: "高尔夫球队", en: "GOLF",       emoji: "⛳", blurb: "", venue: "", contact: null, photos: [], pending: true },
     { key: "tennis",     name: "网球队",    en: "TENNIS",     emoji: "🎾", blurb: "", venue: "", contact: null, photos: [], pending: true }
   ],

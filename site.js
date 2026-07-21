@@ -132,13 +132,28 @@
           <b>${esc(t.contact.name)}</b>${t.contact.note?`<span class="team-note">${esc(t.contact.note)}</span>`:""}
           ${t.contact.wechat?`<span class="team-wx mono">微信 ${esc(t.contact.wechat)}</span>`:""}
         </div>` : "";
+      const blurb = t.blurb ? `<p class="team-blurb">${esc(t.blurb)}</p>` : "";
+      let match = "";
+      if(t.match){
+        const m = t.match;
+        const loc = [m.place, m.address].filter(Boolean).join(" · ");
+        match = `<div class="team-match">
+          <span class="team-lab mono">近期比赛</span>
+          <b>${esc(m.title||"")}</b>
+          ${m.when?`<div class="team-match-row mono">🗓 ${esc(m.when)}</div>`:""}
+          ${loc?`<a class="team-addr mono" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.address||m.place)}" target="_blank" rel="noopener">📍 ${esc(loc)}</a>`:""}
+        </div>`;
+      }
+      const collecting = t.collecting ? `<p class="team-blurb team-soon">简介与联系人信息完善中，敬请期待。</p>` : "";
       return `<div class="team-card">
         ${media}
         <div class="team-body">
           <div class="team-name"><span class="team-emoji">${esc(t.emoji||"")}</span>${esc(t.name)}<span class="team-en mono">${esc(t.en||"")}</span></div>
-          <p class="team-blurb">${esc(t.blurb)}</p>
+          ${blurb}
+          ${match}
           ${venue}
           ${contact}
+          ${collecting}
         </div>
       </div>`;
     }).join("");
