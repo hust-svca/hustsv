@@ -127,10 +127,12 @@
           venue = `<div class="team-venue"><span class="team-lab mono">主场</span>${esc(v)}</div>`;
         }
       }
-      const contact = t.contact ? `<div class="team-contact">
+      const contactList = t.contact ? (Array.isArray(t.contact) ? t.contact : [t.contact]) : [];
+      const contact = contactList.length ? `<div class="team-contact">
           <span class="team-lab mono">联系人</span>
-          <b>${esc(t.contact.name)}</b>${t.contact.note?`<span class="team-note">${esc(t.contact.note)}</span>`:""}
-          ${t.contact.wechat?`<span class="team-wx mono">微信 ${esc(t.contact.wechat)}</span>`:""}
+          <span class="team-contact-names">${contactList.map(c=>
+            `<span class="team-contact-one"><b>${esc(c.name)}</b>${c.note?`<span class="team-note">${esc(c.note)}</span>`:""}${c.wechat?`<span class="team-wx mono">微信 ${esc(c.wechat)}</span>`:""}</span>`
+          ).join("")}</span>
         </div>` : "";
       const blurb = t.blurb ? `<p class="team-blurb">${esc(t.blurb)}</p>` : "";
       const collecting = t.collecting ? `<p class="team-blurb team-soon">球队简介完善中，敬请期待。</p>` : "";

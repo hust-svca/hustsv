@@ -96,7 +96,19 @@ window.SITE_DATA = {
       photos: ["assets/team-soccer-1.jpg"]
     },
     { key: "golf",       name: "高尔夫球队", en: "GOLF",       emoji: "⛳", blurb: "", venue: "", contact: null, photos: [], pending: true },
-    { key: "tennis",     name: "网球队",    en: "TENNIS",     emoji: "🎾", blurb: "", venue: "", contact: null, photos: [], pending: true }
+    {
+      key: "tennis", name: "网球队", en: "TENNIS", emoji: "🎾",
+      blurb: "华科网球队组建于 2017 年，每年参加校际紫荆杯及老乡杯比赛，成绩一直不错，2021 年勇夺紫荆杯冠军。我们是一个有战斗力的集体，平时队友们也会相互约球，组织训练、探讨球技，欢迎校友爱好者加入。",
+      venue: {
+        name: "Mission Hills Racquet and Swim Club",
+        address: "10 E Las Palmas Ave, Fremont, CA 94539"
+      },
+      contact: [
+        { name: "金毅", wechat: "wanjinyou1122" },
+        { name: "尹大奇", wechat: "duke_id" }
+      ],
+      photos: ["assets/team-tennis-1.jpg"]
+    }
   ],
 
   /* 文章分类（与 articles.js 中的 cat 对应） */
