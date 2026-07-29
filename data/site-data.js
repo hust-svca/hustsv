@@ -104,7 +104,7 @@ window.SITE_DATA = {
         address: "10 E Las Palmas Ave, Fremont, CA 94539"
       },
       contact: [
-        { name: "金毅", wechat: "wanjinyou1122" },
+        { name: "金毅", note: "计算机 96 级", wechat: "wanjinyou1122" },
         { name: "尹大奇", wechat: "duke_id" }
       ],
       photos: ["assets/team-tennis-1.jpg"]
