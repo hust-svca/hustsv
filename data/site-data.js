@@ -99,7 +99,7 @@ window.SITE_DATA = {
       key: "golf", name: "高尔夫球队", en: "GOLF", emoji: "⛳",
       blurb: "「校联杯」高尔夫球赛由 Alan Lin 学长于 2017 年发起，如今已举办至第七届，是湾区各高校校友会共同参与的年度盛事。赛事每年分挑战赛、超越赛、团体赛三个阶段，覆盖从新手到高手的各水平球友，校友会也为华科球队的参赛提供支持。欢迎校友组队报名，以球会友，为母校争光！",
       venue: "",
-      contact: { name: "Alan Lin", note: "85 级无线电系" },
+      contact: { name: "Alan Lin", note: "85 级无线电系", wechat: "alanlin8698" },
       photos: []
     },
     {
