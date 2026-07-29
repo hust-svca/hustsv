@@ -95,7 +95,13 @@ window.SITE_DATA = {
       contact: { name: "杨灵祺", note: "力学 04 级", wechat: "nickyang07" },
       photos: ["assets/team-soccer-1.jpg"]
     },
-    { key: "golf",       name: "高尔夫球队", en: "GOLF",       emoji: "⛳", blurb: "", venue: "", contact: null, photos: [], pending: true },
+    {
+      key: "golf", name: "高尔夫球队", en: "GOLF", emoji: "⛳",
+      blurb: "「校联杯」高尔夫球赛由 Alan Lin 学长于 2017 年发起，如今已举办至第七届，是湾区各高校校友会共同参与的年度盛事。赛事每年分挑战赛、超越赛、团体赛三个阶段，覆盖从新手到高手的各水平球友，校友会也为华科球队的参赛提供支持。欢迎校友组队报名，以球会友，为母校争光！",
+      venue: "",
+      contact: { name: "Alan Lin", note: "85 级无线电系" },
+      photos: []
+    },
     {
       key: "tennis", name: "网球队", en: "TENNIS", emoji: "🎾",
       blurb: "华科网球队组建于 2017 年，每年参加校际紫荆杯及老乡杯比赛，成绩一直不错，2021 年勇夺紫荆杯冠军。我们是一个有战斗力的集体，平时队友们也会相互约球，组织训练、探讨球技，欢迎校友爱好者加入。",
