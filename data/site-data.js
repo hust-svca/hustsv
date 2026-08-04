@@ -77,10 +77,11 @@ window.SITE_DATA = {
     },
     {
       key: "pickleball", name: "匹克球队", en: "PICKLEBALL", emoji: "🥒",
-      blurb: "每月组织匹克球比赛，正筹备参加第二届湾区高校匹克球团体赛，欢迎各级别水平的球友。活动多在周日上午举行，报名请在匹克球群「接龙」。",
+      blurb: "每月组织匹克球比赛，正筹备参加第二届湾区高校匹克球团体赛，欢迎各级别水平的球友。校友固定活动为每周日上午 9–11 点，报名请在匹克球群「接龙」。",
       venue: {
-        name: "Palo Alto · Mitchell Park",
-        address: "600 E Meadow Dr, Palo Alto, CA 94303"
+        name: "De Anza College Pickleball Courts",
+        address: "21250 Stevens Creek Blvd, Cupertino, CA 95014",
+        note: "场地多、停车方便。"
       },
       contact: { name: "Henry Hu", note: "电子 94 级", wechat: "henryhwx" },
       photos: ["assets/team-pickleball-1.jpg"]
