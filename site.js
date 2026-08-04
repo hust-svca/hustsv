@@ -112,21 +112,20 @@
       const media = (t.photos&&t.photos.length)
         ? `<div class="team-media"><img loading="lazy" src="${safeUrl(t.photos[0])}" alt="${esc(t.name)}"></div>`
         : `<div class="team-media"><div class="team-ph">${esc(t.emoji||"")}</div></div>`;
-      let venue = "";
-      if(t.venue){
-        const v = t.venue;
-        if(typeof v === "object"){
-          const nameHtml = v.url
-            ? `<a class="hlink" href="${safeUrl(v.url)}" target="_blank" rel="noopener">${esc(v.name)} ↗</a>`
-            : esc(v.name);
-          const addrHtml = v.address
-            ? `<a class="team-addr mono" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.address)}" target="_blank" rel="noopener">📍 ${esc(v.address)}</a>`
-            : "";
-          venue = `<div class="team-venue"><span class="team-lab mono">主场</span>${nameHtml}${v.note?`　${esc(v.note)}`:""}${addrHtml}</div>`;
-        } else {
-          venue = `<div class="team-venue"><span class="team-lab mono">主场</span>${esc(v)}</div>`;
-        }
-      }
+      const venueList = t.venue ? (Array.isArray(t.venue) ? t.venue : [t.venue]) : [];
+      const venueItems = venueList.filter(v=>v).map(v=>{
+        if(typeof v !== "object") return `<span class="team-venue-one">${esc(v)}</span>`;
+        const nameHtml = v.url
+          ? `<a class="hlink" href="${safeUrl(v.url)}" target="_blank" rel="noopener">${esc(v.name)} ↗</a>`
+          : esc(v.name);
+        const addrHtml = v.address
+          ? `<a class="team-addr mono" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.address)}" target="_blank" rel="noopener">📍 ${esc(v.address)}</a>`
+          : "";
+        return `<span class="team-venue-one">${nameHtml}${v.note?`　${esc(v.note)}`:""}${addrHtml}</span>`;
+      }).join("");
+      const venue = venueItems
+        ? `<div class="team-venue"><span class="team-lab mono">主场</span><span class="team-venue-list">${venueItems}</span></div>`
+        : "";
       const contactList = t.contact ? (Array.isArray(t.contact) ? t.contact : [t.contact]) : [];
       const contact = contactList.length ? `<div class="team-contact">
           <span class="team-lab mono">联系人</span>
