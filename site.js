@@ -198,7 +198,7 @@
         <div class="art-cat mono">[${CATEN[a.cat]}] · ${D.cats[a.cat].label}</div>
         <h1>${esc(a.t)}</h1>
         <div class="art-date mono">${a.d} · 来自公众号「华科北加校友会」</div>
-        ${a.cover?`<img class="art-cover" src="${safeUrl(a.cover)}" alt="">`:''}
+        ${(a.cover && !(a.blocks||[]).some(b=>b.k==="img"&&b.v===a.cover))?`<img class="art-cover" src="${safeUrl(a.cover)}" alt="">`:''}
         <div class="art-body">${body}</div>
         <div class="art-foot">
           <div class="mono">本文来自微信公众号「${D.org.wechat}」</div>
